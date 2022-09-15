@@ -60,5 +60,5 @@ ggplot(la_df, aes(x=abs)) + geom_histogram()
 
 The median of the absolute values is `r round(median(la_df$abs), 2)`.
 
-Modified this file for demonstration purposes!
+Modified this file for demonstration purposes!!
 
