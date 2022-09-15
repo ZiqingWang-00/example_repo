@@ -1,0 +1,62 @@
+---
+title: "Simple document"
+output: 
+  html_document:
+    toc_float: true
+    toc: true
+---
+
+I'm an R Markdown document! 
+
+# Section 1
+
+```{r echo=FALSE, message=FALSE}
+library(tidyverse)
+library(ggplot2)
+```
+
+
+Here's a **code chunk** that samples from 
+a _normal distribution_:
+
+```{r}
+samp = rnorm(100)
+length(samp)
+```
+
+# Section 2
+
+I can take the mean of the sample, too!
+The mean is `r round(mean(samp), 2)`.
+
+# Section 3
+
+This is going to make some plots.
+
+```{r}
+plot_df = tibble(
+  x = rnorm(n = 1000),
+  y = 1 + x + rnorm(n=1000)
+)
+
+ggplot(plot_df, aes(x=x, y=y)) + geom_point()
+
+```
+
+# Section 4
+
+A learning assessment
+
+```{r}
+la_df <- tibble(
+  norm_sample = rnorm(500, 1),
+  bool = norm_sample > 0,
+  abs = abs(norm_sample)
+)
+
+ggplot(la_df, aes(x=abs)) + geom_histogram()
+
+```
+
+The median of the absolute values is `r round(median(la_df$abs), 2)`.
+
